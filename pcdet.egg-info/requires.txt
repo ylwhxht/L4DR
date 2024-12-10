@@ -1,9 +1,0 @@
-numpy
-llvmlite
-numba
-tensorboardX
-easydict
-pyyaml
-scikit-image
-tqdm
-SharedArray
