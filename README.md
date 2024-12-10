@@ -1,16 +1,16 @@
 # AAAI2025 - L4DR: LiDAR-4DRadar Fusion for Weather-Robust 3D Object Detection
-[![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2411.08402)
+[![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2411.08402) :balloon:  :balloon: Congratulations to our L4DR paper was accepted by AAAI 2025 with a score of **7777** !
 <div align="center">
   <img src="images/vis.png" width="600"/>
 </div>
 
 
-## :balloon: Introduction
+## Introduction
 :wave: This is the official repository for **AAAI2025 - L4DR**. 
 
-This repo is also a framework for **LiDAR-based**, **4D radar-based**, **LiDAR-4D radar fusion** based 3D object detection for VoD dataset!
+This repo is also a codebase for **LiDAR-4D radar fusion** based 3D object detection for VoD dataset!
 
-## :balloon: Installation
+## Installation
 
 This code is mainly based on [OpenPCDet](https://github.com/open-mmlab/OpenPCDet). 
 
@@ -38,7 +38,7 @@ python setup.py develop
 pip install -r requirements.txt
 ```
 
-## :balloon: Getting Started
+## Getting Started
 The dataset configs are located within [tools/cfgs/dataset_configs](../tools/cfgs/dataset_configs) (vod related), 
 and the model configs are located within [VoD_models](https://github.com/ylwhxht/L4DR/tree/main/tools/cfgs/VoD_models). 
 
