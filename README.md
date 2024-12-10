@@ -107,9 +107,40 @@ rlfusion_5f
 ```
 python -m pcdet.datasets.vod.vod_dataset create_vod_infos tools/cfgs/dataset_configs/Vod_fusion.yaml
 ```
+* Final checking
+Check if your VoD dataset has the following structure:
+```
+View-of-Delft-Dataset (root)
+    ├── lidar
+    ├── radar
+    ├── radar_3_scans
+    ├── radar_5_scans
+    ├── rlfusion_5f (mainly used)
+      │── gt_database
+        ... 
+      │── ImageSets
+        ... 
+      │── training
+         ├── calib (lidar_calib)
+         ├── image_2
+         ├── label_2
+         ├── lidar (lidar velodyne)
+         ├── lidar_calib
+         ├── pose
+         ├── radar (single frame radar velodyne)
+         ├── radar_5f (radar_5_scans velodyne)
+         ├── radar_calib
+      │── testing
+         ... like training (except label)
+      │── vod_dbinfos_train.pkl
+      │── vod_infos_test.pkl
+      │── vod_infos_train.pkl
+      │── vod_infos_trainval.pkl
+      │── vod_infos_val.pkl
+    ├── fog_sim_lidar 
+```
 
 ### Training & Testing
-
 
 #### Train a model
 You could optionally add extra command line parameters `--batch_size ${BATCH_SIZE}` and `--epochs ${EPOCHS}` to specify your preferred parameters. 
@@ -131,6 +162,8 @@ CUDA_VISIBLE_DEVICES=2,3 bash scripts/dist_train.sh 2 --cfg_file cfgs/VoD_models
 ```
 
 #### Test and evaluate the pretrained models
+* We can also provide our pretrained models. If you need it, please feel free to contact me
+
 * Test with a pretrained model: 
 ```shell script
 python test.py --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE} --ckpt ${CKPT}
@@ -143,8 +176,7 @@ python test.py --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE} --eval_all
 
 * To test with multiple GPUs:
 ```shell script
-sh scripts/dist_test.sh ${NUM_GPUS} \
-    --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE}
+sh scripts/dist_test.sh ${NUM_GPUS} --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE}
 ```
 
 For example
@@ -152,3 +184,26 @@ For example
 ```shell script
 CUDA_VISIBLE_DEVICES=2,3 bash scripts/dist_test.sh 2 --cfg_file cfgs/VoD_models/L4DR.yaml --extra_tag 'l4dr_demo' --ckpt /mnt/32THHD/hx/Outputs/output/VoD_models/PP_DF_OurGF/mf2048_re/ckpt/checkpoint_epoch_100.pth
 ```
+
+
+## Citation
+If you are using our project for your research, please cite the following paper:
+
+```
+@misc{l4dr,
+      title={L4DR: LiDAR-4DRadar Fusion for Weather-Robust 3D Object Detection}, 
+      author={Xun Huang and Ziyu Xu and Hai Wu and Jinlong Wang and Qiming Xia and Yan Xia and Jonathan Li and Kyle Gao and Chenglu Wen and Cheng Wang},
+      year={2024},
+      eprint={2408.03677},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2408.03677}, 
+}
+```
+
+## Acknowledgements
+Thank for the excellent 3D object detection codebases [OpenPCDet](https://github.com/open-mmlab/OpenPCDet).
+
+Thank for the excellent 4D radar dataset [VoD Dataset](https://github.com/tudelft-iv/view-of-delft-dataset/blob/main/docs/GETTING_STARTED.md) to download dataset.
+
+Thank for the excellent fog simulation work [fog simulation](https://github.com/MartinHahner/LiDAR_fog_sim).
