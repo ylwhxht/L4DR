@@ -66,15 +66,8 @@ def eval_one_epoch(cfg, args, model, dataloader, epoch_id, logger, dist_test=Fal
             start_time = time.time()
         with torch.no_grad():
             time_start = time.time() 
-            # pred_dicts, ret_dict = model(batch_dict)
-            flops, params = thop.profile(model, inputs=(batch_dict,))  
-            print(f"FLOPs: {flops / 1e9} G")  # 打印计算量（以十亿次浮点运算为单位）  
-            print(f"Params: {params / 1e6} M")  # 打印参数量（以百万为单位）
-            # time_end = time.time()
-            # time_all += time_end - time_start
-            # print(time_all/(i+1))
-    
-    
+            pred_dicts, ret_dict = model(batch_dict)
+
             
         
 
@@ -98,10 +91,6 @@ def eval_one_epoch(cfg, args, model, dataloader, epoch_id, logger, dist_test=Fal
             progress_bar.set_postfix(disp_dict)
             progress_bar.update()
 
-    with open(result_dir / 'Inter_vis_all000.pkl', 'wb') as f:
-            pickle.dump(vis, f)
-    print("vis save in ",(result_dir / 'Inter_vis_all000.pkl', 'wb'))
-    exit()
     if cfg.LOCAL_RANK == 0:
         progress_bar.close()
 

@@ -13,3 +13,4 @@ opencv-python
 pyquaternion
 matplotlib
 vod-tudelft
+thop

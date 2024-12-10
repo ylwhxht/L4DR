@@ -168,6 +168,7 @@ class VodDataset(DatasetTemplate):
 
     def get_image_shape(self, idx):
         img_file = self.root_split_path / 'image_2' / ('%s.jpg' % idx)
+        print(img_file)
         assert img_file.exists()
         return np.array(io.imread(img_file).shape[:2], dtype=np.int32)
 
@@ -828,38 +829,38 @@ class VodDataset(DatasetTemplate):
         return targets
     ##########################targets#######################################
 
-def create_kitti_infos(dataset_cfg, class_names, data_path, save_path, workers=4):
+def create_vod_infos(dataset_cfg, class_names, data_path, save_path, workers=4):
     dataset = VodDataset(dataset_cfg=dataset_cfg, class_names=class_names, root_path=data_path, training=False)
     train_split, val_split = 'train', 'val'
 
     train_filename = save_path / ('vod_infos_%s.pkl' % train_split)
     val_filename = save_path / ('vod_infos_%s.pkl' % val_split)
     trainval_filename = save_path / 'vod_infos_trainval.pkl'
-    test_filename = save_path / 'vod_infos_test.pkl'
+    #test_filename = save_path / 'vod_infos_test.pkl'
 
     print('---------------Start to generate data infos---------------')
 
-    # dataset.set_split(train_split)
-    # vod_infos_train = dataset.get_infos(num_workers=workers, has_label=True, count_inside_pts=True)
-    # with open(train_filename, 'wb') as f:
-    #     pickle.dump(vod_infos_train, f)
-    # print('Vod info train file is saved to %s' % train_filename)
+    dataset.set_split(train_split)
+    vod_infos_train = dataset.get_infos(num_workers=workers, has_label=True, count_inside_pts=True)
+    with open(train_filename, 'wb') as f:
+        pickle.dump(vod_infos_train, f)
+    print('Vod info train file is saved to %s' % train_filename)
 
-    # dataset.set_split(val_split)
-    # vod_infos_val = dataset.get_infos(num_workers=workers, has_label=True, count_inside_pts=True)
-    # with open(val_filename, 'wb') as f:
-    #     pickle.dump(vod_infos_val, f)
-    # print('Vod info val file is saved to %s' % val_filename)
+    dataset.set_split(val_split)
+    vod_infos_val = dataset.get_infos(num_workers=workers, has_label=True, count_inside_pts=True)
+    with open(val_filename, 'wb') as f:
+        pickle.dump(vod_infos_val, f)
+    print('Vod info val file is saved to %s' % val_filename)
 
-    # with open(trainval_filename, 'wb') as f:
-    #     pickle.dump(vod_infos_train + vod_infos_val, f)
-    # print('Vod info trainval file is saved to %s' % trainval_filename)
+    with open(trainval_filename, 'wb') as f:
+        pickle.dump(vod_infos_train + vod_infos_val, f)
+    print('Vod info trainval file is saved to %s' % trainval_filename)
 
     # dataset.set_split('test')
     # vod_infos_test = dataset.get_infos(num_workers=workers, has_label=False, count_inside_pts=False)
     # with open(test_filename, 'wb') as f:
     #     pickle.dump(vod_infos_test, f)
-    print('Kitti info test file is saved to %s' % test_filename)
+    #print('Kitti info test file is saved to %s' % test_filename)
 
     print('---------------Start create groundtruth database for data augmentation---------------')
     dataset.set_split(train_split)
@@ -869,14 +870,15 @@ def create_kitti_infos(dataset_cfg, class_names, data_path, save_path, workers=4
 
 
 if __name__ == '__main__':
-    import syskitti_infos
-    if sys.argv.__len__() > 1 and sys.argv[1] == 'create_kitti_infos':
+    import sys
+    print(sys.argv[1])
+    if sys.argv.__len__() > 1 and sys.argv[1] == 'create_vod_infos':
         import yaml
         from pathlib import Path
         from easydict import EasyDict
         dataset_cfg = EasyDict(yaml.safe_load(open(sys.argv[2])))
         ROOT_DIR = (Path(__file__).resolve().parent / '../../../').resolve()
-        create_kitti_infos(
+        create_vod_infos(
             dataset_cfg=dataset_cfg,
             class_names=['Car', 'Pedestrian', 'Cyclist'],
             data_path= Path('/mnt/32THHD/view_of_delft_PUBLIC/rlfusion_5f/'),

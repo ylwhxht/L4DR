@@ -59,7 +59,7 @@ MODEL:
     NAME: PointPillarMask
 
     VFE:
-        NAME: BiDF_PillarVFE
+        NAME: MME_PillarVFE
         WITH_DISTANCE: False
         USE_ABSLOTE_XYZ: True
         USE_XYZ: True
@@ -78,13 +78,14 @@ MODEL:
         NAME: PointNet2MSG
         SA_CONFIG:
             USE_RAWDIM : 7
-            NPOINTS: [2048, 256, 64]
-            RADIUS: [[0.1, 0.5], [1.0, 2.0], [2.0, 4.0]]
-            NSAMPLE: [[16, 32], [16, 32], [16, 32]]
+            NPOINTS: [4096, 1024, 256, 64]
+            RADIUS: [[0.1, 0.5], [0.5, 1.0], [1.0, 2.0], [2.0, 4.0]]
+            NSAMPLE: [[16, 32], [16, 32], [16, 32], [16, 32]]
             MLPS: [[[16, 16, 32], [32, 32, 64]],
+                   [[64, 64, 128], [64, 96, 128]],
                    [[128, 196, 256], [128, 196, 256]],
                    [[256, 256, 512], [256, 384, 512]]]
-        FP_MLPS: [[128, 128], [256, 256], [512, 512]]
+        FP_MLPS: [[128, 128], [256, 256], [512, 512], [512, 512]]
 
     MAP_TO_BEV: 
         NAME: PointPillarScatter
@@ -115,7 +116,7 @@ MODEL:
             }
 
     BACKBONE_2D:
-        NAME: BaseBEVBackbone
+        NAME: BaseBEVBackbone_MGF
         LAYER_NUMS: [3, 5, 5]
         LAYER_STRIDES: [2, 2, 2]
         NUM_FILTERS: [128, 256, 512]
@@ -196,7 +197,7 @@ MODEL:
 
 
 OPTIMIZATION:
-    BATCH_SIZE_PER_GPU: 24
+    BATCH_SIZE_PER_GPU: 1
     NUM_EPOCHS: 100
 
     OPTIMIZER: adam_onecycle
