@@ -6,22 +6,22 @@
 </div>
 
 
-## Introduction
+# Introduction
 :wave: This is the official repository for **AAAI2025 - L4DR**. 
 
 This repo is also a codebase for **LiDAR-4D radar fusion** based 3D object detection for VoD dataset!
 
-## Installation
+# Installation
 
 This code is mainly based on [OpenPCDet](https://github.com/open-mmlab/OpenPCDet). 
 
-### 1. Clone (or download) the source code 
+## 1. Clone (or download) the source code 
 ```
 git clone https://github.com/ylwhxht/L4DR.git 
 cd L4DR
 ```
  
-### 2. Create conda environment and set up the base dependencies
+## 2. Create conda environment and set up the base dependencies
 ```
 conda create --name l4dr python=3.7 cmake=3.22.1
 conda activate l4dr
@@ -29,23 +29,23 @@ pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 torchaudio==0.10.1 -f 
 pip install spconv-cu113
 ```
 
-### 3. Install pcdet
+## 3. Install pcdet
 ```
 python setup.py develop
 ```
 
-### 4. Install required environment
+## 4. Install required environment
 ```
 pip install -r requirements.txt
 ```
 
-## Getting Started
+# Getting Started
 The dataset configs are located within [tools/cfgs/dataset_configs](../tools/cfgs/dataset_configs) (vod related), 
 and the model configs are located within [VoD_models](https://github.com/ylwhxht/L4DR/tree/main/tools/cfgs/VoD_models). 
 
 
-### Dataset Preparation
-#### 1. Dataset download
+## Dataset Preparation
+### 1. Dataset download
 Please follow [VoD Dataset](https://github.com/tudelft-iv/view-of-delft-dataset/blob/main/docs/GETTING_STARTED.md) to download dataset.
 
 * (Optional)
@@ -69,7 +69,7 @@ View-of-Delft-Dataset (root)
 ```
 
 
-#### 2. Data structure alignment
+### 2. Data structure alignment
 In order to train the LiDAR and 4DRadar fusion model according to the logic of OpenPCDet, we then need to generate LiDAR and 4DRadar fusion data infos.
 * First, create an additional folder with lidar and radar point clouds in the VoD dataset directory (here we call it **rlfusion_5f**):
 ```
@@ -101,7 +101,7 @@ rlfusion_5f
 ```
 
 
-#### 3. Data infos generation
+### 3. Data infos generation
 * Firstly, remember to change **DATA-PATH** in the [VoD dataset cfg file](https://github.com/ylwhxht/L4DR/blob/main/tools/cfgs/dataset_configs/Vod_fusion.yaml).
 
 * Generate the data infos by running the following command: 
@@ -141,14 +141,17 @@ View-of-Delft-Dataset (root)
     ├── fog_sim_lidar 
 ```
 
-### Training & Testing
-
+## Training & Testing
+First, go to the tools folder:
+```
+cd tools
+```
 <div align="center">
   <img src="images/vis.png" width="600"/>
 </div>
 
 
-#### Train a model
+### Train a model
 You could optionally add extra command line parameters `--batch_size ${BATCH_SIZE}` and `--epochs ${EPOCHS}` to specify your preferred parameters. 
   
 
@@ -167,7 +170,7 @@ For example
 CUDA_VISIBLE_DEVICES=2,3 bash scripts/dist_train.sh 2 --cfg_file cfgs/VoD_models/L4DR.yaml --extra_tag 'l4dr_demo' --sync_bn
 ```
 
-#### Test and evaluate the pretrained models
+### Test and evaluate the pretrained models
 * We can also provide our pretrained models. If you need it, please feel free to contact me
 
 * Test with a pretrained model: 
@@ -191,13 +194,13 @@ For example
 CUDA_VISIBLE_DEVICES=2,3 bash scripts/dist_test.sh 2 --cfg_file cfgs/VoD_models/L4DR.yaml --extra_tag 'l4dr_demo' --ckpt /mnt/32THHD/hx/Outputs/output/VoD_models/PP_DF_OurGF/mf2048_re/ckpt/checkpoint_epoch_100.pth
 ```
 
-## Other Instructions
+# Other Instructions
 We also provide some instructions on using our code, which will be continuously updated. Please feel free to ask any questions.
-### About the evaluation results of the model
+## About the evaluation results of the model
 
 As mentioned in the paper, we provide two model evaluation strategies, KITTI and VoD. you can choose whether to use the VoD evaluation metrics or not by turning on or off **VOD_EVA** in the [VoD_fusion.yaml](https://github.com/ylwhxht/L4DR/blob/main/tools/cfgs/dataset_configs/Vod_fusion.yaml) file (and KITTI metrics if turned off).
 
-### About fog simulation during training and testing
+## About fog simulation during training and testing
 
 See our [vod_dataset](https://github.com/ylwhxht/L4DR/blob/main/pcdet/datasets/vod/vod_dataset.py) for relevant details.
 
@@ -220,7 +223,7 @@ In this case, the fog intensity (0-4) corresponds to the following in the paper:
 
 
 
-## Citation
+# Citation
 If you are using our project for your research, please cite the following paper:
 
 ```
@@ -235,7 +238,7 @@ If you are using our project for your research, please cite the following paper:
 }
 ```
 
-## Acknowledgements
+# Acknowledgements
 Thank for the excellent 3D object detection codebases [OpenPCDet](https://github.com/open-mmlab/OpenPCDet).
 
 Thank for the excellent 4D radar dataset [VoD Dataset](https://github.com/tudelft-iv/view-of-delft-dataset/blob/main/docs/GETTING_STARTED.md) to download dataset.
