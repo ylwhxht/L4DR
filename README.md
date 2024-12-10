@@ -37,3 +37,7 @@ python setup.py develop
 ```
 pip install -r requirements.txt
 ```
+
+## :balloon: Getting Started
+The dataset configs are located within [tools/cfgs/dataset_configs](../tools/cfgs/dataset_configs) (vod related), 
+and the model configs are located within [VoD_models](https://github.com/ylwhxht/L4DR/tree/main/tools/cfgs/VoD_models). 
