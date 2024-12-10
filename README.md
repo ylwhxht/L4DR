@@ -9,7 +9,7 @@
 # Introduction
 :wave: This is the official repository for **AAAI2025 - L4DR**. 
 
-This repo is also a codebase for **LiDAR-4D radar fusion** based 3D object detection for VoD dataset!
+This repo is also a codebase for **LiDAR-4D radar fusion** based 3D object detection on the VoD dataset!
 
 # Installation
 
