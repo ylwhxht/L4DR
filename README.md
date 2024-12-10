@@ -1,7 +1,8 @@
 # AAAI2025 - L4DR: LiDAR-4DRadar Fusion for Weather-Robust 3D Object Detection
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2411.08402) :balloon:  :balloon: Congratulations to our L4DR paper was accepted by AAAI 2025 with a score of **7777** !
+
 <div align="center">
-  <img src="images/vis.png" width="600"/>
+  <img src="images/frame.png" width="600"/>
 </div>
 
 
@@ -142,6 +143,11 @@ View-of-Delft-Dataset (root)
 
 ### Training & Testing
 
+<div align="center">
+  <img src="images/vis.png" width="600"/>
+</div>
+
+
 #### Train a model
 You could optionally add extra command line parameters `--batch_size ${BATCH_SIZE}` and `--epochs ${EPOCHS}` to specify your preferred parameters. 
   
@@ -185,7 +191,6 @@ For example
 CUDA_VISIBLE_DEVICES=2,3 bash scripts/dist_test.sh 2 --cfg_file cfgs/VoD_models/L4DR.yaml --extra_tag 'l4dr_demo' --ckpt /mnt/32THHD/hx/Outputs/output/VoD_models/PP_DF_OurGF/mf2048_re/ckpt/checkpoint_epoch_100.pth
 ```
 
-<<<<<<< HEAD
 ## Other Instructions
 We also provide some instructions on using our code, which will be continuously updated. Please feel free to ask any questions.
 ### About the evaluation results of the model
@@ -212,8 +217,8 @@ In this case, the fog intensity (0-4) corresponds to the following in the paper:
 * fog = 2 : use_fog = 1 & path = 0.060 (beta in fog simulation)
 * fog = 3 : use_fog = 1 & path = 0.100 (beta in fog simulation)
 * fog = 4 : use_fog = 1 & path = 0.200 (beta in fog simulation)
-=======
->>>>>>> 27c7faff55199525098272a9bec58de068dfb2bd
+
+
 
 ## Citation
 If you are using our project for your research, please cite the following paper:
