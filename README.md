@@ -185,6 +185,7 @@ For example
 CUDA_VISIBLE_DEVICES=2,3 bash scripts/dist_test.sh 2 --cfg_file cfgs/VoD_models/L4DR.yaml --extra_tag 'l4dr_demo' --ckpt /mnt/32THHD/hx/Outputs/output/VoD_models/PP_DF_OurGF/mf2048_re/ckpt/checkpoint_epoch_100.pth
 ```
 
+<<<<<<< HEAD
 ## Other Instructions
 We also provide some instructions on using our code, which will be continuously updated. Please feel free to ask any questions.
 ### About the evaluation results of the model
@@ -211,6 +212,8 @@ In this case, the fog intensity (0-4) corresponds to the following in the paper:
 * fog = 2 : use_fog = 1 & path = 0.060 (beta in fog simulation)
 * fog = 3 : use_fog = 1 & path = 0.100 (beta in fog simulation)
 * fog = 4 : use_fog = 1 & path = 0.200 (beta in fog simulation)
+=======
+>>>>>>> 27c7faff55199525098272a9bec58de068dfb2bd
 
 ## Citation
 If you are using our project for your research, please cite the following paper:
