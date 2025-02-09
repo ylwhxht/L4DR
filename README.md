@@ -1,9 +1,11 @@
 # AAAI2025 [Oral] - L4DR: LiDAR-4DRadar Fusion for Weather-Robust 3D Object Detection
 :balloon:  :balloon: [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2408.03677) Congratulations to our L4DR paper was accepted by AAAI 2025 Oral (Top-4.6%) !
 
-<div align="center">
-  <img src="images/frame.png" width="1200"/>
-</div>
+
+<p align="center">
+  <img src="images/frame.png" width="600"/>
+  <img src = "images/vid.gif" width="400">
+</p>
 
 
 # Introduction
