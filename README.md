@@ -3,8 +3,8 @@
 
 
 <p align="center">
-  <img src="images/frame.png" width="600"/>
-  <img src = "images/vid.gif" width="400">
+  <img src="images/frame.png" width="500"/>
+  <img src = "images/vid.gif" width="300">
 </p>
 
 
