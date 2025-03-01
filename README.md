@@ -13,6 +13,8 @@
 
 This repo is also a codebase for **LiDAR-4D radar fusion** based 3D object detection on the VoD dataset!
 
+* 2025/3/1: Update L4DR on Kradar.
+
 # based on VoD dataset
 ## Installation
 
@@ -225,7 +227,7 @@ In this case, the fog intensity (0-4) corresponds to the following in the paper:
 
 
 # based on K-radar dataset
-The code is located in the [K-Radar-main](https://github.com/ylwhxht/L4DR/blob/main/K-Radar-main) folder, the installation and run please mainly follow [Kradar](https://github.com/kaist-avelab/K-Radar/blob/main/docs/dataset.md) 
+ The code based on K-radar dataset is located in the [K-Radar-main](https://github.com/ylwhxht/L4DR/blob/main/K-Radar-main) folder, the installation and run please mainly follow [Kradar](https://github.com/kaist-avelab/K-Radar/blob/main/docs/dataset.md) 
 ## Configuration
 We provide two versions of L4DR, with the gap reflected in the labeled version (v1.1 vs. the latest v2.1), the evaluation categories (Sedan Only as well as Sedan+Bus), and the dataset version. Refer to the configuration file for details:
 * [L4DR v1.1](https://github.com/ylwhxht/L4DR/blob/main/K-Radar-main/configs/cfg_PP_L4DR_v1.1.yml)
