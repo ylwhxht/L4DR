@@ -54,7 +54,7 @@ and the model configs are located within [VoD_models](https://github.com/ylwhxht
 Please follow [VoD Dataset](https://github.com/tudelft-iv/view-of-delft-dataset/blob/main/docs/GETTING_STARTED.md) to download dataset.
 
 * (Optional)
-If you want to reproduce our fog simulation-related experiments, you need to run [fog simulation](https://github.com/MartinHahner/LiDAR_fog_sim) on the VoD lidar point cloud. The relevant parts of fog simulation only need to refer to their code and configuration. 
+If you want to reproduce our fog simulation-related experiments, you need to run [fog simulation](https://github.com/MartinHahner/LiDAR_fog_sim) (or download our simulated dataset) on the VoD lidar point cloud. The relevant parts of fog simulation only need to refer to their code and configuration. 
 **This part may be difficult and complex. If you need it, you can contact me to request our VoD dataset after fog simulation.**
 
 After the preparation, the format of how the dataset is provided:
@@ -230,12 +230,12 @@ In this case, the fog intensity (0-4) corresponds to the following in the paper:
  The code based on K-radar dataset is located in the [K-Radar-main](https://github.com/ylwhxht/L4DR/blob/main/K-Radar-main) folder, the installation and run please mainly follow [Kradar](https://github.com/kaist-avelab/K-Radar/blob/main/docs/dataset.md) 
 ## Configuration
 We provide two versions of L4DR, with the gap reflected in the labeled version (v1.1 vs. the latest v2.1), the evaluation categories (Sedan Only as well as Sedan+Bus), and the dataset version. Refer to the configuration file for details:
-* [L4DR v1.1](https://github.com/ylwhxht/L4DR/blob/main/K-Radar-main/configs/cfg_PP_L4DR_v1.1.yml)
-* [L4DR v2.1](https://github.com/ylwhxht/L4DR/blob/main/K-Radar-main/configs/cfg_PP_L4DR.yml)
+* [L4DR v1.1](https://github.com/ylwhxht/L4DR/tree/main/K-Radar-main-repo/configs/cfg_PP_L4DR_v1.1.yml)
+* [L4DR v2.1](https://github.com/ylwhxht/L4DR/tree/main/K-Radar-main-repo/configs/cfg_PP_L4DR.yml)
 ## Evaluation
 We have provided a full assessment of the results, please refer to this if additional data is required:
-* [Results v1.1](https://github.com/ylwhxht/L4DR/blob/main/K-Radar-main/logs/v1.1.txt)
-* [Results v2.1](https://github.com/ylwhxht/L4DR/blob/main/K-Radar-main/logs/v2.1.txt)
+* [Results v1.1](https://github.com/ylwhxht/L4DR/tree/main/K-Radar-main-repo/logs/v1.1.txt)
+* [Results v2.1](https://github.com/ylwhxht/L4DR/tree/main/K-Radar-main-repo/logs/v2.1.txt)
 
 # Citation
 If you are using our project for your research, please cite the following paper:
