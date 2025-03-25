@@ -67,7 +67,7 @@ DATASET:
   }
   roi: {
     'filter': True,
-    'xyz': [0,-6.4,-2,72,6.4,6],
+    'xyz': [0.,-16.,-2.,72.,16.,7.6],
     'keys': ['rdr_sparse'],
     'check_azimuth_for_rdr': False,
     'azimuth_deg': [-180,180],
