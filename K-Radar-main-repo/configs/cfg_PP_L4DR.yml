@@ -1,6 +1,6 @@
 ### ----- General ----- ###
 GENERAL:
-  NAME: 'cfg_PP_L4DR'
+  NAME: 'PP_RLF'
   COMMENT1: '0~72, -16~16, -2~7.6'
   COMMENT2: 'CenterPoint setting'
   COMMENT3: 'Multi-class (+ Bus or Truck)'
@@ -11,7 +11,7 @@ GENERAL:
   DEVICE: 'gpu'
   RESUME:
     IS_RESUME: False
-    PATH_EXP: # None
+    PATH_EXP: '/mnt/32THHD/hx/K-Radar-main/logs/PP_RLF/train_35e_0.1denoise_nofilter_nor2l_nomax' # None
     START_EP: # None
     IS_COPY_LOGS: False
 
@@ -63,7 +63,7 @@ DATASET:
     'processed': True,
     'dir': '/mnt/32THHD/K-Radar-dataset/sparse_radar_tensor_wide_range/rtnh_wider_1p_1/',
     'n_used': 4, # x, y, z, intensity
-    'sample_points': 1024
+    'sample_points': 10240
   }
   roi: {
     'filter': True,
@@ -102,7 +102,7 @@ MODEL:
     SHUFFLE_POINTS: True
     TRANSFORM_POINTS_TO_VOXELS: True
     MAX_POINTS_PER_VOXEL: 32
-    DENOISE_T: 0.15
+    DENOISE_T: 0.1
     MAX_NUMBER_OF_VOXELS: {
       'train': 16000,
       'test': 40000
@@ -139,7 +139,6 @@ MODEL:
     NAME: PointHeadPreMask
     CLS_FC: [256, 256]
     CLASS_AGNOSTIC: False
-
     USE_POINT_FEATURES_BEFORE_FUSION: False
     TARGET_CONFIG:
         GT_EXTRA_WIDTH: [0.2, 0.2, 0.2]
@@ -258,8 +257,8 @@ OPTIMIZER: # Training
   WEIGHT_DECAY: 0.01
   MOMENTUM: 0.9
 
-  BATCH_SIZE: 2
-  NUM_WORKERS: 4 # 0 for dataloader_error / 4 for batch 16
+  BATCH_SIZE: 3
+  NUM_WORKERS: 16 # 0 for dataloader_error / 4 for batch 16
 
   MAX_EPOCH: 35
   
