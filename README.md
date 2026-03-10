@@ -48,7 +48,7 @@ pip install -r requirements.txt
 The dataset configs are located within [tools/cfgs/dataset_configs](../tools/cfgs/dataset_configs) (vod related), 
 and the model configs are located within [VoD_models](https://github.com/ylwhxht/L4DR/tree/main/tools/cfgs/VoD_models). 
 
-The pretrained model weight can be found [here](https://huggingface.co/hx24).
+
 
 
 
@@ -150,13 +150,10 @@ View-of-Delft-Dataset (root)
 ```
 
 ### Training & Testing
-First, go to the tools folder:
-```
-cd tools
-```
-<div align="center">
-  <img src="images/vis.png" width="600"/>
-</div>
+
+#### Pretrained model weight
+* The pretrained model weight can be found [here](https://huggingface.co/hx24).
+
 
 
 #### Train a model
@@ -178,8 +175,10 @@ For example
 CUDA_VISIBLE_DEVICES=2,3 bash scripts/dist_train.sh 2 --cfg_file cfgs/VoD_models/L4DR.yaml --extra_tag 'l4dr_demo' --sync_bn
 ```
 
-#### Test and evaluate the pretrained models
-* We can also provide our pretrained models. If you need it, please feel free to contact me
+
+
+#### Test and evaluate
+
 
 * Test with a pretrained model: 
 ```shell script
@@ -201,6 +200,11 @@ For example
 ```shell script
 CUDA_VISIBLE_DEVICES=2,3 bash scripts/dist_test.sh 2 --cfg_file cfgs/VoD_models/L4DR.yaml --extra_tag 'l4dr_demo' --ckpt /mnt/32THHD/hx/Outputs/output/VoD_models/PP_DF_OurGF/mf2048_re/ckpt/checkpoint_epoch_100.pth
 ```
+
+<div align="center">
+  <img src="images/vis.png" width="600"/>
+</div>
+
 
 ## Other Instructions
 ### About the evaluation results of the model
@@ -239,6 +243,10 @@ We provide two versions of L4DR, with the gap reflected in the labeled version (
 We have provided a full assessment of the results, please refer to this if additional data is required:
 * [Results v1.1](https://github.com/ylwhxht/L4DR/tree/main/K-Radar-main-repo/logs/v1.1.txt)
 * [Results v2.1](https://github.com/ylwhxht/L4DR/tree/main/K-Radar-main-repo/logs/v2.1.txt)
+
+
+
+
 
 # Citation
 If you are using our project for your research, please cite the following paper:
