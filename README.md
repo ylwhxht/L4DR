@@ -48,6 +48,9 @@ pip install -r requirements.txt
 The dataset configs are located within [tools/cfgs/dataset_configs](../tools/cfgs/dataset_configs) (vod related), 
 and the model configs are located within [VoD_models](https://github.com/ylwhxht/L4DR/tree/main/tools/cfgs/VoD_models). 
 
+The pretrained model weight can be found [here](https://huggingface.co/hx24).
+
+
 
 ### Dataset Preparation
 #### 1. Dataset download
