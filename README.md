@@ -1,5 +1,7 @@
+
+
 # AAAI2025 [Oral] - L4DR: LiDAR-4DRadar Fusion for Weather-Robust 3D Object Detection
-:balloon:  :balloon: [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2408.03677) Congratulations to our L4DR paper was accepted by AAAI 2025 Oral (Top-4.6%) !
+:balloon:  :balloon: [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2408.03677) Congratulations! Our L4DR paper was accepted by AAAI 2025 Oral (Top-4.6%)!
 
 
 <p align="center">
@@ -47,8 +49,6 @@ pip install -r requirements.txt
 ## Getting Started
 The dataset configs are located within [tools/cfgs/dataset_configs](../tools/cfgs/dataset_configs) (vod related), 
 and the model configs are located within [VoD_models](https://github.com/ylwhxht/L4DR/tree/main/tools/cfgs/VoD_models). 
-
-
 
 
 
@@ -243,7 +243,6 @@ We provide two versions of L4DR, with the gap reflected in the labeled version (
 We have provided a full assessment of the results, please refer to this if additional data is required:
 * [Results v1.1](https://github.com/ylwhxht/L4DR/tree/main/K-Radar-main-repo/logs/v1.1.txt)
 * [Results v2.1](https://github.com/ylwhxht/L4DR/tree/main/K-Radar-main-repo/logs/v2.1.txt)
-
 
 
 
